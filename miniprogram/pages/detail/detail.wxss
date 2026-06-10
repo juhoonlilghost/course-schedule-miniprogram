@@ -1,0 +1,89 @@
+.container {
+  padding: 24rpx;
+  padding-bottom: 160rpx;
+  background: #f6f6f6;
+  min-height: 100vh;
+}
+
+.detail-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 40rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.course-header {
+  text-align: center;
+  margin-bottom: 32rpx;
+}
+
+.course-name {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.divider {
+  height: 2rpx;
+  background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+  margin: 24rpx 0;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-size: 28rpx;
+  color: #666;
+  min-width: 120rpx;
+}
+
+.detail-value {
+  font-size: 28rpx;
+  color: #333;
+  flex: 1;
+  text-align: right;
+}
+
+/* 底部操作栏 */
+.action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 24rpx;
+  padding: 24rpx;
+  background: #fff;
+  box-shadow: 0 -4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.action-btn {
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.btn-edit {
+  background: #4CAF50;
+  color: #fff;
+}
+
+.btn-delete {
+  background: #fff;
+  color: #ff4d4f;
+  border: 2rpx solid #ff4d4f;
+}

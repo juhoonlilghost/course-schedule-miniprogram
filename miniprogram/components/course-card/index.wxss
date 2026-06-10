@@ -1,0 +1,36 @@
+.course-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s;
+}
+
+.course-card:active {
+  transform: scale(0.98);
+}
+
+.course-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.course-time {
+  font-size: 26rpx;
+  color: #4CAF50;
+  margin-bottom: 12rpx;
+}
+
+.course-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.info-item {
+  font-size: 24rpx;
+  color: #666;
+}

@@ -1,0 +1,59 @@
+<!--game.wxml-->
+<view class="page">
+  <!-- Score Bar -->
+  <view class="score-bar">
+    <text class="score-label">分数</text>
+    <text class="score-value">{{score}}</text>
+  </view>
+
+  <!-- Game Canvas -->
+  <view class="canvas-wrapper">
+    <canvas
+      type="2d"
+      id="gameCanvas"
+      class="game-canvas"
+      bindtouchstart="onCanvasTouchStart"
+      bindtouchmove="onCanvasTouchMove"
+      bindtouchend="onCanvasTouchEnd"
+      disable-scroll="{{true}}"
+    ></canvas>
+  </view>
+
+  <!-- Start/Pause Button -->
+  <view class="control-row">
+    <button class="btn btn-primary" bindtap="onStartPause">{{isPlaying ? '暂停' : '开始'}}</button>
+  </view>
+
+  <!-- Direction Controls (D-pad) -->
+  <view class="d-pad">
+    <view class="d-pad-row">
+      <view class="d-btn" bindtap="onChangeDirection" data-direction="up">
+        <text class="d-btn-text">▲</text>
+      </view>
+    </view>
+    <view class="d-pad-row">
+      <view class="d-btn" bindtap="onChangeDirection" data-direction="left">
+        <text class="d-btn-text">◀</text>
+      </view>
+      <view class="d-btn d-btn-empty"></view>
+      <view class="d-btn" bindtap="onChangeDirection" data-direction="right">
+        <text class="d-btn-text">▶</text>
+      </view>
+    </view>
+    <view class="d-pad-row">
+      <view class="d-btn" bindtap="onChangeDirection" data-direction="down">
+        <text class="d-btn-text">▼</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- Game Over Modal -->
+  <view class="modal-overlay" wx:if="{{showGameOver}}">
+    <view class="modal-content">
+      <view class="modal-title">游戏结束</view>
+      <view class="modal-score-label">最终分数</view>
+      <view class="modal-score">{{score}}</view>
+      <button class="btn btn-primary modal-btn" bindtap="onRestart">重新开始</button>
+    </view>
+  </view>
+</view>

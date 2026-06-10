@@ -1,0 +1,35 @@
+<view class="container" wx:if="{{course}}">
+  <view class="detail-card">
+    <view class="course-header">
+      <text class="course-name">{{course.courseName}}</text>
+    </view>
+    
+    <view class="divider"></view>
+    
+    <view class="detail-item">
+      <text class="detail-label">时间</text>
+      <text class="detail-value">{{course.dayOfWeek === 1 ? '周一' : course.dayOfWeek === 2 ? '周二' : course.dayOfWeek === 3 ? '周三' : course.dayOfWeek === 4 ? '周四' : course.dayOfWeek === 5 ? '周五' : course.dayOfWeek === 6 ? '周六' : '周日'}} {{course.startTime}} - {{course.endTime}}</text>
+    </view>
+    
+    <view class="detail-item">
+      <text class="detail-label">地点</text>
+      <text class="detail-value">{{course.location}}</text>
+    </view>
+    
+    <view class="detail-item">
+      <text class="detail-label">教师</text>
+      <text class="detail-value">{{course.teacher}}</text>
+    </view>
+    
+    <view class="detail-item" wx:if="{{course.remark}}">
+      <text class="detail-label">备注</text>
+      <text class="detail-value">{{course.remark}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 底部操作栏 -->
+<view class="action-bar" wx:if="{{course}}">
+  <button class="action-btn btn-edit" bindtap="onEdit">编辑</button>
+  <button class="action-btn btn-delete" bindtap="onDelete">删除</button>
+</view>

@@ -1,0 +1,19 @@
+# Local config (contains personal settings)
+project.private.config.json
+
+# Planning files (temporary working files)
+task_plan.md
+cloudfunctions/findings.md
+cloudfunctions/progress.md
+cloudfunctions/task_plan.md
+
+# Trae internal files
+.trae/
+cloudfunctions/.trae/
+
+# Cloud function dependencies (should be installed locally)
+cloudfunctions/*/node_modules/
+
+# IDE
+.vscode/
+.DS_Store

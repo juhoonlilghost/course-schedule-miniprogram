@@ -1,0 +1,48 @@
+<view class="container">
+  <!-- 星期Tab筛选 -->
+  <view class="tab-bar">
+    <view 
+      class="tab-item {{currentTab === index ? 'active' : ''}}" 
+      wx:for="{{dayTabs}}" 
+      wx:key="*this"
+      data-index="{{index}}"
+      bindtap="onTabChange"
+    >
+      {{item}}
+    </view>
+  </view>
+
+  <!-- 课程列表 -->
+  <view class="course-list" wx:if="{{courseList.length > 0}}">
+    <view class="day-group" wx:for="{{courseList}}" wx:key="dayName">
+      <view class="day-header">{{item.dayName}}</view>
+      <view 
+        class="course-card" 
+        wx:for="{{item.courses}}" 
+        wx:key="_id"
+        data-id="{{item._id}}"
+        bindtap="onCourseTap"
+      >
+        <view class="course-name">{{item.courseName}}</view>
+        <view class="course-time">{{item.startTime}} - {{item.endTime}}</view>
+        <view class="course-info">
+          <text class="info-item">📍 {{item.location}}</text>
+          <text class="info-item" wx:if="{{item.teacher}}">👤 {{item.teacher}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <text class="empty-icon">📚</text>
+    <text class="empty-text">暂无课程</text>
+    <text class="empty-hint">点击下方按钮添加你的第一门课程吧</text>
+  </view>
+
+  <!-- 底部悬浮添加按钮 -->
+  <view class="fab-btn" bindtap="onAddCourse">
+    <text class="fab-icon">+</text>
+    <text class="fab-text">添加课程</text>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+{
+  "name": "deleteCourse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "cloudfunctionRoot": true,
+  "config": {
+    "timeout": 5,
+    "memorySize": 128
+  }
+}

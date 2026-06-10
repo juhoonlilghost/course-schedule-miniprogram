@@ -1,0 +1,98 @@
+<view class="container">
+  <view class="form-section">
+    <!-- 课程名称 -->
+    <view class="form-item">
+      <view class="form-label">课程名称 <text class="required">*</text></view>
+      <input 
+        class="form-input" 
+        placeholder="请输入课程名称" 
+        value="{{form.courseName}}"
+        data-field="courseName"
+        bindinput="onInputChange"
+        maxlength="50"
+      />
+    </view>
+
+    <!-- 教师 -->
+    <view class="form-item">
+      <view class="form-label">教师 <text class="required">*</text></view>
+      <input 
+        class="form-input" 
+        placeholder="请输入教师姓名" 
+        value="{{form.teacher}}"
+        data-field="teacher"
+        bindinput="onInputChange"
+        maxlength="30"
+      />
+    </view>
+
+    <!-- 地点 -->
+    <view class="form-item">
+      <view class="form-label">上课地点 <text class="required">*</text></view>
+      <input 
+        class="form-input" 
+        placeholder="请输入上课地点" 
+        value="{{form.location}}"
+        data-field="location"
+        bindinput="onInputChange"
+        maxlength="100"
+      />
+    </view>
+
+    <!-- 星期 -->
+    <view class="form-item">
+      <view class="form-label">星期 <text class="required">*</text></view>
+      <picker 
+        mode="selector" 
+        range="{{dayOptions}}" 
+        value="{{form.dayOfWeek - 1}}"
+        bindchange="onDayChange"
+      >
+        <view class="picker-value">{{dayOptions[form.dayOfWeek - 1]}}</view>
+      </picker>
+    </view>
+
+    <!-- 开始时间 -->
+    <view class="form-item">
+      <view class="form-label">开始时间 <text class="required">*</text></view>
+      <picker 
+        mode="time" 
+        value="{{form.startTime}}"
+        bindchange="onStartTimeChange"
+      >
+        <view class="picker-value">{{form.startTime}}</view>
+      </picker>
+    </view>
+
+    <!-- 结束时间 -->
+    <view class="form-item">
+      <view class="form-label">结束时间 <text class="required">*</text></view>
+      <picker 
+        mode="time" 
+        value="{{form.endTime}}"
+        bindchange="onEndTimeChange"
+      >
+        <view class="picker-value">{{form.endTime}}</view>
+      </picker>
+    </view>
+
+    <!-- 备注 -->
+    <view class="form-item">
+      <view class="form-label">备注</view>
+      <textarea 
+        class="form-textarea" 
+        placeholder="请输入备注信息（可选）" 
+        value="{{form.remark}}"
+        data-field="remark"
+        bindinput="onInputChange"
+        maxlength="200"
+      />
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-bar">
+    <button class="btn btn-cancel" bindtap="onCancel">取消</button>
+    <button class="btn btn-save" bindtap="onSave">保存</button>
+  </view>
+</view>

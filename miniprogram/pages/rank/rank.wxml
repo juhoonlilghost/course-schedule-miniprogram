@@ -1,0 +1,38 @@
+<!--rank.wxml-->
+<view class="page">
+  <!-- Loading State -->
+  <view wx:if="{{loading}}" class="loading-container">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- Content -->
+  <view wx:else>
+    <!-- Best Score Card -->
+    <view class="best-card" wx:if="{{bestScore !== null}}">
+      <text class="best-label">我的最佳成绩</text>
+      <text class="best-score">{{bestScore}}</text>
+    </view>
+
+    <!-- Leaderboard Section -->
+    <view class="section-title">排行榜</view>
+
+    <!-- Empty State -->
+    <view wx:if="{{leaderboard.length === 0}}" class="empty-container">
+      <image class="empty-icon" src="/images/empty.svg" mode="aspectFit"></image>
+      <text class="empty-text">暂无排行数据</text>
+    </view>
+
+    <!-- Leaderboard List -->
+    <view class="rank-list" wx:else>
+      <view class="rank-item" wx:for="{{leaderboard}}" wx:key="_id">
+        <view class="rank-badge rank-badge-{{item.rank}}">{{item.rank}}</view>
+        <view class="rank-avatar">
+          <text class="avatar-placeholder">{{item.nickname ? item.nickname[0] : '?'}}</text>
+        </view>
+        <text class="rank-name">{{item.nickname}}</text>
+        <text class="rank-score">{{item.score}}</text>
+      </view>
+    </view>
+  </view>
+</view>

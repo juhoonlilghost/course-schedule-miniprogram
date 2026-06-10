@@ -1,0 +1,16 @@
+{
+  "name": "saveScore",
+  "pluginVersion": "latest",
+  "runtimeVersion": "Node18",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "compileHotReLoad": false,
+    "postcss": true,
+    "minified": true,
+    "babelOptimize": true,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  }
+}

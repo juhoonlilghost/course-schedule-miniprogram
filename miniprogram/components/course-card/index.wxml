@@ -1,0 +1,8 @@
+<view class="course-card" bindtap="onTap">
+  <view class="course-name">{{course.courseName}}</view>
+  <view class="course-time">{{course.startTime}} - {{course.endTime}}</view>
+  <view class="course-info">
+    <text class="info-item">📍 {{course.location}}</text>
+    <text class="info-item" wx:if="{{course.teacher}}">👤 {{course.teacher}}</text>
+  </view>
+</view>
