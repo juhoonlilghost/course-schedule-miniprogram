@@ -4,6 +4,41 @@
   background: #f6f6f6;
 }
 
+/* 搜索栏 */
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  gap: 16rpx;
+}
+
+.search-input {
+  flex: 1;
+  height: 72rpx;
+  background: #fff;
+  border-radius: 36rpx;
+  padding: 0 28rpx;
+  font-size: 28rpx;
+  color: #333;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.search-btn {
+  background: #4CAF50;
+  color: #fff;
+  font-size: 26rpx;
+  padding: 14rpx 28rpx;
+  border-radius: 32rpx;
+}
+
+.clear-btn {
+  background: #f0f0f0;
+  color: #666;
+  font-size: 26rpx;
+  padding: 14rpx 28rpx;
+  border-radius: 32rpx;
+}
+
 /* Tab 筛选栏 */
 .tab-bar {
   display: flex;

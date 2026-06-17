@@ -57,7 +57,7 @@ Page({
 
   // 星期选择
   onDayChange(e) {
-    const index = e.detail.value;
+    const index = parseInt(e.detail.value, 10);
     this.setData({ 'form.dayOfWeek': index + 1 });
   },
 

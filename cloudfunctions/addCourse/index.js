@@ -44,17 +44,20 @@ function validateCourseData(data) {
 
 exports.main = async (event, context) => {
   try {
+    const wxContext = cloud.getWXContext();
+
     // 数据校验
     const validation = validateCourseData(event);
     if (!validation.valid) {
       return { success: false, message: validation.message };
     }
-    
+
     const now = Date.now();
-    
-    // 添加课程
+
+    // 添加课程，必须手动带上 _openid，云函数不会自动注入
     const result = await db.collection('courses').add({
       data: {
+        _openid: wxContext.OPENID,
         courseName: event.courseName.trim(),
         teacher: event.teacher.trim(),
         location: event.location.trim(),
@@ -66,7 +69,7 @@ exports.main = async (event, context) => {
         updateTime: now
       }
     });
-    
+
     return { success: true, message: '添加成功', data: { _id: result._id } };
   } catch (err) {
     console.error('addCourse error:', err);

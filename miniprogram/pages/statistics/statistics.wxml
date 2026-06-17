@@ -1,0 +1,51 @@
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">课程统计</text>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading-state" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!loading && empty}}">
+    <text class="empty-icon">📊</text>
+    <text class="empty-text">暂无数据</text>
+    <text class="empty-hint">快去添加课程吧</text>
+  </view>
+
+  <!-- 统计内容 -->
+  <view class="stats-content" wx:if="{{!loading && !empty}}">
+    <!-- 概览卡片 -->
+    <view class="overview-cards">
+      <view class="stat-card">
+        <text class="stat-num">{{stats.totalCourses}}</text>
+        <text class="stat-label">课程总数</text>
+      </view>
+      <view class="stat-card">
+        <text class="stat-num">{{stats.totalHours}}</text>
+        <text class="stat-label">每周总课时</text>
+      </view>
+      <view class="stat-card">
+        <text class="stat-num">{{stats.teacherCount}}</text>
+        <text class="stat-label">教师数量</text>
+      </view>
+    </view>
+
+    <!-- 每日课程分布 -->
+    <view class="distribution-section">
+      <view class="section-title">每日课程分布</view>
+      <view class="day-distribution">
+        <view class="day-item" wx:for="{{stats.dayDistribution}}" wx:key="day">
+          <text class="day-name">{{item.day}}</text>
+          <view class="day-bar-wrap">
+            <view class="day-bar" style="width: {{item.percent}}%;"></view>
+          </view>
+          <text class="day-count">{{item.count}}节</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

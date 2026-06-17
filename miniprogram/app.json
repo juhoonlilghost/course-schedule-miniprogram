@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/add-course/add-course",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/statistics/statistics",
+    "pages/profile/profile"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -10,6 +12,32 @@
     "navigationBarBackgroundColor": "#4CAF50",
     "navigationBarTitleText": "课程表",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4CAF50",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "课表",
+        "iconPath": "images/icons/home.png",
+        "selectedIconPath": "images/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/statistics/statistics",
+        "text": "统计",
+        "iconPath": "images/icons/business.png",
+        "selectedIconPath": "images/icons/business-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/icons/usercenter.png",
+        "selectedIconPath": "images/icons/usercenter-active.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",

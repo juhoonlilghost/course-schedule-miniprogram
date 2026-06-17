@@ -3,7 +3,8 @@ Page({
     courseList: [],
     dayTabs: ['全部', '周一', '周二', '周三', '周四', '周五', '周六', '周日'],
     currentTab: 0,
-    loading: false
+    loading: false,
+    keyword: ''
   },
 
   onLoad() {
@@ -21,15 +22,31 @@ Page({
     this.loadCourseList();
   },
 
+  // 搜索输入
+  onSearchInput(e) {
+    this.setData({ keyword: e.detail.value });
+  },
+
+  // 执行搜索
+  onSearch() {
+    this.loadCourseList();
+  },
+
+  // 清除搜索
+  onClearSearch() {
+    this.setData({ keyword: '' });
+    this.loadCourseList();
+  },
+
   // 加载课程列表
   loadCourseList() {
     this.setData({ loading: true });
-    
+
     const dayOfWeek = this.data.currentTab === 0 ? null : this.data.currentTab;
-    
+
     wx.cloud.callFunction({
       name: 'getCourseList',
-      data: { dayOfWeek }
+      data: { dayOfWeek, keyword: this.data.keyword }
     }).then(res => {
       const result = res.result;
       if (result && result.success) {

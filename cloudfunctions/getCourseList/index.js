@@ -8,15 +8,24 @@ exports.main = async (event, context) => {
   try {
     const wxContext = cloud.getWXContext();
     const dayOfWeek = event.dayOfWeek;
-    
+    const keyword = event.keyword;
+
     // 构建查询条件
     let query = { _openid: wxContext.OPENID };
-    
+
     // 如果指定了星期，则按星期筛选
     if (dayOfWeek && dayOfWeek >= 1 && dayOfWeek <= 7) {
       query.dayOfWeek = dayOfWeek;
     }
-    
+
+    // 如果指定了关键字，则对课程名称进行模糊匹配
+    if (keyword && keyword.trim().length > 0) {
+      query.courseName = db.RegExp({
+        regexp: keyword.trim(),
+        options: 'i'
+      });
+    }
+
     // 查询课程列表，按星期和开始时间排序
     const result = await db.collection('courses')
       .where(query)

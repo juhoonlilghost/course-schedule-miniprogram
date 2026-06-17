@@ -1,4 +1,19 @@
 <view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input
+      class="search-input"
+      type="text"
+      placeholder="搜索课程名称"
+      value="{{keyword}}"
+      bindinput="onSearchInput"
+      confirm-type="search"
+      bindconfirm="onSearch"
+    />
+    <view class="search-btn" bindtap="onSearch">搜索</view>
+    <view class="clear-btn" wx:if="{{keyword}}" bindtap="onClearSearch">清除</view>
+  </view>
+
   <!-- 星期Tab筛选 -->
   <view class="tab-bar">
     <view 

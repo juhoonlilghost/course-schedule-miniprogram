@@ -1,0 +1,25 @@
+<view class="container">
+  <!-- 用户信息 -->
+  <view class="user-section">
+    <image class="avatar" src="/images/avatar.png" mode="aspectFill"></image>
+    <text class="nickname">微信用户</text>
+  </view>
+
+  <!-- 信息列表 -->
+  <view class="info-list">
+    <view class="info-item" bindtap="copyOpenid">
+      <text class="info-label">OpenID</text>
+      <text class="info-value">{{openid || '加载中...'}}</text>
+      <image class="copy-icon" src="/images/copy.svg" mode="aspectFit"></image>
+    </view>
+    <view class="info-item">
+      <text class="info-label">云环境 ID</text>
+      <text class="info-value">{{env}}</text>
+    </view>
+  </view>
+
+  <!-- 说明文字 -->
+  <view class="notice-section">
+    <text class="notice-text">您的课程数据已存储在云端，换设备登录不会丢失</text>
+  </view>
+</view>
